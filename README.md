@@ -92,7 +92,7 @@ Suggestion: Use the app token of the deployed OnDemand app.
 
 ### COMSOL_SERVER_PREFS
 
-*Optional* (Default: none)
+*Optional*
 
 This environment variable points to a file that holds the default values to use
 in the `server.prefs` file under a user's local install. An example can include:
@@ -123,7 +123,7 @@ This is how you override an option that this app sets.
 
 ### COMSOL_APP_ROOT
 
-*Optional* (Default: none)
+*Optional*
 
 This environment variable points to the directory where you have installed the
 COMSOL apps (`*.mph` and `*.mphapp`) that you want to appear in the COMSOL
