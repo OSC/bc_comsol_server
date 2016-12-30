@@ -10,9 +10,9 @@ export PATH="${ROOT}/bin:${PATH}"
 export COMSOL_PREFSDIR="${HOME}/.comsol/${COMSOL_APP_TOKEN}"
 mkdir -p "${COMSOL_PREFSDIR}/output"
 mkdir -p "${COMSOL_PREFSDIR}/applications"
-if [[ "${COMSOL_APP_PATH}" ]]; then
+if [[ "${COMSOL_APP_ROOT}" ]]; then
   # Create a symlink for all *.mphapp and *.mph files
-  ln -s "${COMSOL_APP_PATH}/"*.mph{,app} "${COMSOL_PREFSDIR}/applications/."
+  ln -s "${COMSOL_APP_ROOT}/"*.mph{,app} "${COMSOL_PREFSDIR}/applications/."
   # Remove any old broken symlinks
   symlinks -d "${COMSOL_PREFSDIR}/applications"
 fi
