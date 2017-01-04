@@ -1,5 +1,8 @@
 # Batch Connect - COMSOL Server
 
+![GitHub Release](https://img.shields.io/github/release/osc/bc_comsol_server.svg)
+![GitHub License](https://img.shields.io/github/license/osc/bc_comsol_server.svg)
+
 A VNCSim app used for launching COMSOL Server under OSC's supercomputer
 environment. It is designed to:
 
