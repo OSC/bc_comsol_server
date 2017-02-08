@@ -39,6 +39,9 @@ awk -F'[= ]' '
 # For debugging purposes output license server information
 lmutil lmstat -a
 
+# COMSOL expects CWD to be $HOME
+cd $HOME
+
 # Launch COMSOL Server
 # NB: use -silent or the server will suspend itself
 comsol server -serviceport ${HOST_PORT} -prefsdir "${COMSOL_PREFSDIR}" -silent -login never
