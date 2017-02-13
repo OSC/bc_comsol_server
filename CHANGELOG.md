@@ -1,5 +1,11 @@
 ## Unreleased
 
+## 0.0.2 (2017-02-08)
+
+Bugfixes:
+
+  - Fix bug where COMSOL Server expects CWD to be HOME
+
 ## 0.0.1 (2016-12-30)
 
 Initial release!
