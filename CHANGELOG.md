@@ -1,5 +1,7 @@
 ## Unreleased
 
+## 0.0.3 (2017-02-14)
+
 Features:
 
   - use latest COMSOL Server that takes advantage of relative URLs
