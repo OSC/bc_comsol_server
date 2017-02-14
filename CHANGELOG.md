@@ -1,5 +1,7 @@
 ## Unreleased
 
+## 0.0.4 (2017-02-14)
+
 Bugfixes:
 
   - forgot to change text color back to default
