@@ -1,5 +1,10 @@
 ## Unreleased
 
+Features:
+
+  - use latest COMSOL Server that takes advantage of relative URLs
+  - add support to use OOD proxy for connecting to COMSOL Server
+
 ## 0.0.2 (2017-02-08)
 
 Bugfixes:
