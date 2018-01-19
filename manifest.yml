@@ -1,10 +1,10 @@
 ---
 name: COMSOL Server
-description: |-
-  **COMSOL Server** provides access to a COMSOL Server running on one or more
-  compute nodes on the Oakley cluster at the Ohio Supercomputer Center (OSC).
-category: Desktop Apps
-subcategory: Interactive HPC
-role: ihpc
-icon: fa://area-chart
-url: /pun/sys/vncsim/%{app_token}/sessions
+category: Interactive Apps
+subcategory: Servers
+role: batch_connect
+description: |
+  This app will launch [COMSOL Server] 5.2au3 on the [Oakley Cluster].
+
+  [COMSOL Server]: https://www.comsol.com/comsol-server
+  [Oakley Cluster]: https://www.osc.edu/resources/technical_support/supercomputers/oakley

@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+# Load the required environment
+setup_env () {
+  module purge
+  module load comsol/52au3_server
+}
+setup_env
+
+#
+# Start COMSOL Server
+#
+
+export COMSOL_PREFSDIR="${HOME}/.comsol/<%= session.token %>"
+mkdir -p "${COMSOL_PREFSDIR}"
+
+# Copy over default server preferences if it does not exist
+export PREFS_FILE="${COMSOL_PREFSDIR}/server.prefs"
+if [[ ! -e "${PREFS_FILE}" ]]; then
+  echo "Copying over default server preferences..."
+  set -x
+  cp "<%= session.staged_root.join("assets", "server.prefs") %>" "${PREFS_FILE}"
+  { set +x; } 2>/dev/null
+fi
+
+# For debugging purposes output license server information
+echo "Output license information..."
+set -x
+lmutil lmstat -a
+{ set +x; } 2>/dev/null
+
+# Set working directory to home directory
+cd $HOME
+
+# Launch COMSOL Server
+# NB: use -silent or the server will suspend itself
+echo "Starting up COMSOL Server..."
+set -x
+comsol server \
+  -serviceport ${port} \
+  -prefsdir "${COMSOL_PREFSDIR}" \
+  -silent \
+  -login never

@@ -3,16 +3,23 @@
 ![GitHub Release](https://img.shields.io/github/release/osc/bc_comsol_server.svg)
 ![GitHub License](https://img.shields.io/github/license/osc/bc_comsol_server.svg)
 
-A VNCSim app used for launching COMSOL Server under OSC's supercomputer
-environment. It is designed to:
+An interactive app designed for OSC OnDemand that launches a COMSOL Server
+within an Oakley batch job.
 
-  - launch COMSOL Server using the
-    [Lmod](https://www.tacc.utexas.edu/research-development/tacc-projects/lmod)
-    package manager
-  - provide sensible defaults for the COMSOL Server when started under a
-    per-user-environment
-  - supply wrapper scripts for subsequently submitting jobs to the computer
-    clusters within a COMSOL Server app
+## Prerequisites
+
+This Batch Connect app requires the following software be installed on the
+**compute nodes** that the batch job is intended to run on (**NOT** the
+OnDemand node):
+
+- [COMSOL Server](https://www.comsol.com/comsol-server) 5.2au3+
+
+**Optional** software:
+
+- [Lmod](https://www.tacc.utexas.edu/research-development/tacc-projects/lmod)
+  6.0.1+ or any other `module purge` and `module load <modules>` based CLI used
+  to load appropriate environments within the batch job before launching the
+  COMSOL Server.
 
 > **Warning:**
 >
@@ -20,118 +27,30 @@ environment. It is designed to:
 > that it has a proper Authentication module in place. We recommend setting up
 > the LDAP module for the local authentication of your users.
 
-## Bower Install
+## Install
 
-You can install this in any project using Bower:
-
-```sh
-bower install git://github.com/OSC/bc_comsol_server.git --save
-```
-
-## Install Independently
-
-1. Git clone this app in the desired location and go into the directory:
-
-  ```sh
-  git clone <repo> bc_comsol_server
-
-  cd bc_comsol_server
-  ```
-
-2. Checkout the version of the app you want to deploy:
-
-  ```sh
-  git checkout <tag>
-  ```
-
-## Update
-
-1. Fetch the updated code:
-
-  ```sh
-  git fetch
-  ```
-
-2. Checkout the desired tag:
-
-  ```sh
-  git checkout <tag>
-  ```
-
-## Specification
-
-### ROOT
-
-All assets in this package look for dependencies in the specified `$ROOT`
-directory. This should be set to correspond to the included `template/`
-directory.
-
-An example running the `xstartup` script included in this package:
+Use Git to clone this app and checkout the desired branch/version you want to
+use:
 
 ```sh
-# Path where you installed this project
-BC_COMSOL_SERVER_DIR="/path/to/bc_comsol_server/template"
-
-# Run the `xstartup` script with proper `$ROOT` set
-ROOT="${BC_COMSOL_SERVER_DIR}" ${BC_COMSOL_SERVER_DIR}/xstartup
+scl enable git19 -- git clone <repo>
+cd <dir>
+scl enable git19 -- git checkout <tag/branch>
 ```
 
-### COMSOL_MODULE
+You will not need to do anything beyond this as all necessary assets are
+installed. You will also not need to restart this app as it isn't a Passenger
+app.
 
-This environment variable describes the specific COMSOL Server version to load.
-This also assumes module support through the
-[Lmod](https://www.tacc.utexas.edu/research-development/tacc-projects/lmod)
-package manager is installed on the running compute node as well as the
-requested module in `$COMSOL_MODULE`.
-
-### COMSOL_APP_TOKEN
-
-This namespaces the installation location and runtime environment for the
-COMSOL Server. This should be unique across different COMSOL Server instances
-otherwise configuration files and installed COMSOL apps will overlap and cause
-problems.
-
-Suggestion: Use the app token of the deployed OnDemand app.
-
-### COMSOL_SERVER_PREFS
-
-*Optional*
-
-This environment variable points to a file that holds the default values to use
-in the `server.prefs` file under a user's local install. An example can include:
+To update the app you would:
 
 ```sh
-# xstartup
-
-...
-
-export BC_COMSOL_SERVER_PREFS="${ROOT}/server.prefs.default"
-
-# call the comsol server xstartup here...
-
-...
+cd <dir>
+scl enable git19 -- git fetch
+scl enable git19 -- git checkout <tag/branch>
 ```
 
-and the `server.prefs.default` can look like:
-
-```
-server.general.showbuiltinapplications=off
-application.server.enable=off
-application.server.allowexternalprocess=on
-```
-
-Note: The supplied file's settings will take precedence over the equivalent
-settings in this app's [server.prefs.default](template/server.prefs.default).
-This is how you override an option that this app sets.
-
-### COMSOL_APP_ROOT
-
-*Optional*
-
-This environment variable points to the directory where you have installed the
-COMSOL apps (`*.mph` and `*.mphapp`) that you want to appear in the COMSOL
-Server dashboard for your users. This location needs to be readable and
-executable by your users. Do not give the users write access to these files.
+Again, you do not need to restart the app as it isn't a Passenger app.
 
 ## Contributing
 

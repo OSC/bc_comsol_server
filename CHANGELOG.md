@@ -1,24 +1,33 @@
-## Unreleased
+# Changelog
+All notable changes to this project will be documented in this file.
 
-## 0.0.4 (2017-02-14)
+The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
+and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-Bugfixes:
+## [Unreleased]
+### Changed
+- Completely refactored to be an Interactive App (Dashboard Plugin).
 
-  - forgot to change text color back to default
+## [0.0.4] - 2017-02-14
+### Fixed
+- Forgot to change text color back to default.
 
-## 0.0.3 (2017-02-14)
+## [0.0.3] - 2017-02-14
+### Added
+- Add support to use OOD proxy for connecting to COMSOL Server.
 
-Features:
+### Changed
+- Use latest COMSOL Server that takes advantage of relative URLs.
 
-  - use latest COMSOL Server that takes advantage of relative URLs
-  - add support to use OOD proxy for connecting to COMSOL Server
+## [0.0.2] - 2017-02-08
+### Fixed
+- Fix bug where COMSOL Server expects CWD to be HOME.
 
-## 0.0.2 (2017-02-08)
+## 0.0.1 - 2016-12-30
+### Added
+- Initial release!
 
-Bugfixes:
-
-  - Fix bug where COMSOL Server expects CWD to be HOME
-
-## 0.0.1 (2016-12-30)
-
-Initial release!
+[Unreleased]: https://github.com/OSC/bc_osc_rstudio_server/compare/v0.4.0...HEAD
+[0.0.4]: https://github.com/OSC/bc_osc_rstudio_server/compare/v0.0.3...v0.4.0
+[0.0.3]: https://github.com/OSC/bc_osc_rstudio_server/compare/v0.0.2...v0.3.0
+[0.0.2]: https://github.com/OSC/bc_osc_rstudio_server/compare/v0.0.1...v0.0.2
