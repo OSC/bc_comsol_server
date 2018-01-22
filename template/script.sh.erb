@@ -14,17 +14,6 @@ setup_env
 <%- prefs_dir = Pathname.new(ENV["HOME"]).join(".comsol", session.token) -%>
 mkdir -p "<%= prefs_dir %>"
 
-# Copy over default server preferences if it does not exist
-<%- server_prefs = prefs_dir.join("server.prefs") -%>
-if [[ ! -e "<%= server_prefs %>" ]]; then
-  echo "Copying over default server preferences..."
-  set -x
-  cp \
-    "<%= session.staged_root.join("assets", "server.prefs") %>" \
-    "<%= server_prefs %>"
-  { set +x; } 2>/dev/null
-fi
-
 # For debugging purposes output license server information
 echo "Output license information..."
 set -x
