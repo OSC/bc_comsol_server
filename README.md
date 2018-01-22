@@ -12,7 +12,8 @@ This Batch Connect app requires the following software be installed on the
 **compute nodes** that the batch job is intended to run on (**NOT** the
 OnDemand node):
 
-- [COMSOL Server](https://www.comsol.com/comsol-server) 5.2au3+
+- [COMSOL Server](https://www.comsol.com/comsol-server) 5.2a Update 3 or
+  greater
 
 **Optional** software:
 
