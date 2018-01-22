@@ -11,15 +11,17 @@ setup_env
 # Start COMSOL Server
 #
 
-export COMSOL_PREFSDIR="${HOME}/.comsol/<%= session.token %>"
-mkdir -p "${COMSOL_PREFSDIR}"
+<%- prefs_dir = Pathname.new(ENV["HOME"]).join(".comsol", session.token) -%>
+mkdir -p "<%= prefs_dir %>"
 
 # Copy over default server preferences if it does not exist
-export PREFS_FILE="${COMSOL_PREFSDIR}/server.prefs"
-if [[ ! -e "${PREFS_FILE}" ]]; then
+<%- server_prefs = prefs_dir.join("server.prefs") -%>
+if [[ ! -e "<%= server_prefs %>" ]]; then
   echo "Copying over default server preferences..."
   set -x
-  cp "<%= session.staged_root.join("assets", "server.prefs") %>" "${PREFS_FILE}"
+  cp \
+    "<%= session.staged_root.join("assets", "server.prefs") %>" \
+    "<%= server_prefs %>"
   { set +x; } 2>/dev/null
 fi
 
@@ -30,7 +32,7 @@ lmutil lmstat -a
 { set +x; } 2>/dev/null
 
 # Set working directory to home directory
-cd $HOME
+cd "${HOME}"
 
 # Launch COMSOL Server
 # NB: use -silent or the server will suspend itself
@@ -38,6 +40,6 @@ echo "Starting up COMSOL Server..."
 set -x
 comsol server \
   -serviceport ${port} \
-  -prefsdir "${COMSOL_PREFSDIR}" \
+  -prefsdir "<%= prefs_dir %>" \
   -silent \
   -login never

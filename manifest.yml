@@ -4,7 +4,7 @@ category: Interactive Apps
 subcategory: Servers
 role: batch_connect
 description: |
-  This app will launch [COMSOL Server] 5.2au3 on the [Oakley Cluster].
+  This app will launch [COMSOL Server] 5.2a Update 3 on the [Oakley Cluster].
 
   [COMSOL Server]: https://www.comsol.com/comsol-server
   [Oakley Cluster]: https://www.osc.edu/resources/technical_support/supercomputers/oakley
