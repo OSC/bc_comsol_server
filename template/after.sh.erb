@@ -4,6 +4,6 @@ if wait_until_port_used "${host}:${port}" 60; then
   echo "Discovered COMSOL Server listening on port ${port}!"
 else
   echo "Timed out waiting for COMSOL Server to open port ${port}!"
-  clean 1
+  clean_up 1
 fi
 sleep 2
