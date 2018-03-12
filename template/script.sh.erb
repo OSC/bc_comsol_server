@@ -3,6 +3,7 @@
 # Load the required environment
 setup_env () {
   module purge
+  module use /usr/local/share/lmodfiles/project/ondemand
   module load comsol/52au3_server
 }
 setup_env
@@ -22,6 +23,9 @@ lmutil lmstat -a
 
 # Set working directory to home directory
 cd "${HOME}"
+
+# Some debugging information
+module list
 
 # Launch COMSOL Server
 # NB: use -silent or the server will suspend itself
