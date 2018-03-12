@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Changed
 - Use private module file for loading COMSOL Server.
+- Renamed "Account" label to "Project" in form.
 
 ### Fixed
 - Clean up if server times out.
