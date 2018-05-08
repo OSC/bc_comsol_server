@@ -4,7 +4,7 @@
 [![GitHub License](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 An interactive app designed for OSC OnDemand that launches a COMSOL Server
-within an Oakley batch job.
+within an Owens batch job.
 
 ## Prerequisites
 

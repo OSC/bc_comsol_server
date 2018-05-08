@@ -3,7 +3,7 @@
 # Load the required environment
 setup_env () {
   module purge
-  module use /usr/local/share/lmodfiles/project/ondemand
+  module use "${MODULEPATH_ROOT}/project/ondemand"
   module load comsol/52au3_server
 }
 setup_env
